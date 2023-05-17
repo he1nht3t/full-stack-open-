@@ -1,0 +1,37 @@
+GET http://localhost:3003/api/blogs
+
+###
+GET http://localhost:3003/api/blogs/641acfead8b1c7d8653d4f38
+
+###
+POST http://localhost:3003/api/blogs HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Blog with token user",
+    "author": "Robert C. Martin",
+    "url": "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html"
+}
+
+###
+DELETE http://localhost:3003/api/blogs/644fb56c58798ca03385a00f HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsaWNlIiwiaWQiOiI2NDFkNzkxYTgxMTdhNmFmYzdlZGMyYWEiLCJpYXQiOjE2ODMwOTk0NjksImV4cCI6MTY4MzEwMzA2OX0.yMDKP7mLQhHoPVNofRdl7CVMtMAim9mBLGFrcN1u4HE
+
+###
+PUT http://localhost:3003/api/blogs/641aeb0220c48e59efda951 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Type Wars",
+    "author": "Robert C. Martin",
+    "url": "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
+    "likes": 10
+}
+
+###
+POST http://localhost:3003/api/blogs/64549598297ed301696e86bc/comments HTTP/1.1
+Content-Type: application/json
+
+{
+    "comment": "This is 2nd comment"
+}
