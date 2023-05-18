@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { deleteBlog, likeBlog, commentBlog } from '../reducers/blogsReducer'
 
@@ -16,6 +16,7 @@ const Blog = () => {
   const loginUser = useSelector(({ loginUser }) => loginUser)
 
   const id = useParams().id
+  const navigate = useNavigate()
 
   const blog = blogs.find((blog) => blog.id === id)
 
@@ -24,6 +25,7 @@ const Blog = () => {
   const removeBlog = (blogObject) => {
     if (window.confirm(`Remove blog ${blogObject.title} by ${blogObject.author}`)) {
       dispatch(deleteBlog(blogObject.id))
+      navigate('/')
     }
   }
 

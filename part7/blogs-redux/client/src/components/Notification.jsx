@@ -1,6 +1,7 @@
-import React from 'react'
-
 import { useSelector } from 'react-redux'
+
+//UI
+import { Message } from 'semantic-ui-react'
 
 const Notification = () => {
   const notification = useSelector((state) => state.notification)
@@ -10,11 +11,11 @@ const Notification = () => {
   }
 
   if (notification.type === 'success') {
-    return <div className="success">{notification.message}</div>
+    return <Message success header={notification.message} />
   }
 
   if (notification.type === 'error') {
-    return <div className="error">{notification.message}</div>
+    return <Message error header={notification.message} />
   }
 }
 

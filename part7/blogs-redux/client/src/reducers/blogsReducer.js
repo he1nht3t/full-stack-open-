@@ -22,7 +22,8 @@ const blogsSlice = createSlice({
     updateBlog: (state, action) => {
       return state.map((blog) => {
         if (blog.id === action.payload.id) {
-          return action.payload
+          const updateBlog = { ...action.payload, user: blog.user }
+          return updateBlog
         }
         return blog
       })
