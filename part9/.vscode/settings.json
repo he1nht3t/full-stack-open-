@@ -1,0 +1,8 @@
+{
+	"eslint.workingDirectories": [
+		"./ts-intro",
+		"./ex9.1-9.7",
+		"./flight-diary/server",
+		"./patientor/server"
+	]
+}
